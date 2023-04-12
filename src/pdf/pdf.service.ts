@@ -26,7 +26,7 @@ export class PdfService {
     const promise = await Promise.all(promises);
     this.logger.log(promise);
 
-    return { fileName: "umbala" };
+    return { fileName: "mock_file_name" };
   }
 
   async mergeHTMLsToPDF(
@@ -71,10 +71,6 @@ export class PdfService {
     fileName: string
   ): Promise<string> {
     try {
-      if (fileName === "2_20230321_Ninh Medical 1_form 1") {
-        this.logger.log("delay 1000ms for 2_20230321_Ninh Medical 1_form 1");
-        await new Promise((f) => setTimeout(f, 1000));
-      }
       this.logger.log(`rendering for ${fileName}`);
       const pdf = await this.renderPDFFromString(htmlFileString);
       return await this.savePDF(pdf, fileName);
