@@ -1,0 +1,18 @@
+# Ignore the node_modules directory
+node_modules
+Dockerfile
+
+# Ignore the .git directory
+.git
+
+# Ignore any files or directories that are not needed for the Docker image
+README.md
+LICENSE
+*.log
+*.swp
+*.swo
+coverage
+
+#ignroe ide
+.idea
+.vscode

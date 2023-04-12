@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package pdf;
+// =================
+
+import "google/protobuf/empty.proto";
+
+service PdfService {
+  rpc Generate (PdfGeneratingRequest) returns (PdfGeneratingResponse);
+  rpc GeneratePDFStream (stream PdfDataRequest) returns (PdfGeneratingResponse);
+}
+
+message PdfDataRequest {
+  bytes data = 1;
+  string fileName = 2;
+}
+
+message PdfGeneratingRequest {
+  repeated PdfDataRequest pdfData = 1;
+}
+
+message PdfGeneratingResponse {
+  string fileName = 1;
+}

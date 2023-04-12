@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: service-pdf
+  labels:
+    app: service-pdf
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: service-pdf
+  template:
+    metadata:
+      labels:
+        app: service-pdf
+    spec:
+      containers:
+        - name: pdf
+          image: pdf
+          ports:
+            - containerPort: 50052
+          resources:
+            limits:
+              cpu: 500m
+              memory: 512Mi
+            requests:
+              cpu: 100m
+              memory: 256Mi
+      restartPolicy: Always
