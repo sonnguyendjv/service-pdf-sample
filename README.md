@@ -1,11 +1,28 @@
 ## Description
 
-service-pdf for rendering .html files to .pdf files
+`service-pdf` A NestJS-based project rendering .html files to .pdf files. 
 
 ## Installation
 
 ```bash
+# Install required dependencies
 $ npm install
+```
+
+## Generation
+```
+Protoc - the compiler transforms .proto files to .ts files
+[Protoc](https://grpc.io/docs/protoc-installation)
+```
+
+```
+# Linux
+$ protoc --plugin=protoc-gen-ts_proto=./node_modules/.bin/protoc-gen-ts_proto \
+--ts_proto_out=src/generated/ proto/*.proto \
+--ts_proto_opt=outputEncodeMethods=false,outputJsonMethods=false,outputClientImpl=false,outputServices=false
+
+# Windows
+$ protoc --plugin=protoc-gen-ts_proto=.\node_modules\.bin\protoc-gen-ts_proto.cmd --ts_proto_out="src\generated" "proto\*.proto" --ts_proto_opt=outputEncodeMethods=false,outputJsonMethods=false,outputClientImpl=false,outputServices=false
 ```
 
 ## Running the app
@@ -21,15 +38,9 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
-## Test
-
+## Docker
 ```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+docker build -t service-pdf .
+docker run --name service-pdf -p 50052:50052 service-pdf
 ```
+

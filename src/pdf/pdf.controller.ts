@@ -4,7 +4,7 @@ import { GrpcMethod } from "@nestjs/microservices";
 import {
   PdfGeneratingRequest,
   PdfGeneratingResponse
-} from "../interfaces/pdf.interface";
+} from "../generated/proto/pdf";
 import { PdfService } from "./pdf.service";
 
 @Controller()

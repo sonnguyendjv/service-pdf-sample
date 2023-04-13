@@ -4,7 +4,7 @@ import { promisify } from "util";
 import {
   PdfGeneratingRequest,
   PdfGeneratingResponse
-} from "../interfaces/pdf.interface";
+} from "../generated/proto/pdf";
 import * as fs from "fs";
 import * as os from "os";
 
