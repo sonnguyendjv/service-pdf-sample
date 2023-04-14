@@ -16,9 +16,9 @@ message PdfDataRequest {
 }
 
 message PdfGeneratingRequest {
-  repeated PdfDataRequest pdfData = 1;
+  repeated PdfDataRequest files = 1;
 }
 
 message PdfGeneratingResponse {
-  string fileName = 1;
+  repeated string paths = 1;
 }
