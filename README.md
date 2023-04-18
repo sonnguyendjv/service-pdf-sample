@@ -2,20 +2,21 @@
 
 `service-pdf` A NestJS-based project rendering .html files to .pdf files. Generated files will be saved in /tmp directory
 
-## Docker
+# In case install with docker
 ```bash
 docker build -t service-pdf .
 docker run --name service-pdf -p 50052:50052 service-pdf
 ```
 
-## Installation
+# In case install without docker
+## Step1: Local Installation
 
 ```bash
 # Install required dependencies
 $ npm install
 ```
 
-## Generation
+## Step2: Install Compiler for transforming
 ```
 Protoc - the compiler transforms .proto files to .ts files
 [Protoc](https://grpc.io/docs/protoc-installation)
@@ -31,7 +32,7 @@ $ protoc --plugin=protoc-gen-ts_proto=./node_modules/.bin/protoc-gen-ts_proto \
 $ protoc --plugin=protoc-gen-ts_proto=.\node_modules\.bin\protoc-gen-ts_proto.cmd --ts_proto_out="src\generated" "proto\*.proto" --ts_proto_opt=outputEncodeMethods=false,outputJsonMethods=false,outputClientImpl=false,outputServices=false
 ```
 
-## Running the app
+## Step3: Running the app
 
 Comment file .puppeteerrc.cjs when running on local
 
